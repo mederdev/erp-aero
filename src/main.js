@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const multer = require("multer");
 const cors = require('cors');
 
@@ -27,14 +26,13 @@ app.use(express.json());
 app.use(upload.single('file'));
 
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 app.use('/file', fileRoutes);
 app.use('/', userRoutes);
 
 app.get('/', (req, res) => {
   try {
-    res.send("Test task in express");
+    res.send("Test project in express");
   } catch(e) {
     res.sendStatus(500);
   }
